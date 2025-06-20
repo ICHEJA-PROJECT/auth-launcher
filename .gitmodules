@@ -1,0 +1,6 @@
+[submodule "claudinary-image-service"]
+	path = claudinary-image-service
+	url = https://github.com/ICHEJA-PROJECT/claudinary-image-service.git
+[submodule "auth-ms"]
+	path = auth-ms
+	url = https://github.com/ICHEJA-PROJECT/auth-ms.git
