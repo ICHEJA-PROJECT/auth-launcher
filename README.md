@@ -33,7 +33,7 @@ Asegúrate de tener instalado lo siguiente:
 1. **Clona el repositorio:**
 
     ```bash
-    git clone <URL_DEL_REPOSITORIO>
+    git clone --recurse-submodules <URL_DEL_REPOSITORIO>
     cd auth-launcher
     ```
 
