@@ -4,3 +4,9 @@
 [submodule "auth-ms"]
 	path = auth-ms
 	url = https://github.com/ICHEJA-PROJECT/auth-ms.git
+[submodule "voice-evaluator-service"]
+	path = voice-evaluator-service
+	url = https://github.com/ICHEJA-PROJECT/voice-evaluator-service.git
+[submodule "AC_Comparar_Imagen"]
+	path = AC_Comparar_Imagen
+	url = https://github.com/ICHEJA-PROJECT/AC_Comparar_Imagen

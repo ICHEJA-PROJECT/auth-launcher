@@ -49,3 +49,25 @@ services:
       - JWT_EXPIRATION=${JWT_EXPIRATION:-1h}
       - ENCRYPTION_KEY=${ENCRYPTION_KEY}
       - UPLOAD_IMAGE_SERVICE_URL=http://cloudinary-service:8080
+
+  voice-evaluator-service:
+    container_name: voice_evaluator_service
+    build:
+      context: ./voice-evaluator-service
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./voice-evaluator-service/app:/app/app
+    ports:
+      - '${VOICE_PORT_EXT:-5000}:5000'
+    environment:
+      - PORT=${VOICE_PORT_EXT:-5000}
+
+  comparar-imagen-service:
+    container_name: comparar_imagen_service
+    build:
+      context: ./AC_Comparar_Imagen
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '5001:5001'
