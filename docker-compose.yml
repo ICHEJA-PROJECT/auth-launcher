@@ -34,12 +34,12 @@ services:
       dockerfile: dockerfile.prod
     restart: always
     ports:
-      - '${PORT:-3000}:3000'
+      - '${PORT:-4532}:4532'
     depends_on:
       - auth-db
       - cloudinary-service
     environment:
-      - PORT=${PORT:-3000}
+      - PORT=${PORT:-4532}
       - DB_HOST=auth-db
       - DB_PORT=5432
       - DB_USERNAME=${DB_USERNAME:-postgres}
