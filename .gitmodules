@@ -14,3 +14,9 @@
 [submodule "api-gateway"]
 	path = api-gateway
 	url = https://github.com/ICHEJA-PROJECT/api-gateway.git
+[submodule "Service-Exercise"]
+	path = Service-Exercise
+	url = https://github.com/ICHEJA-PROJECT/Service-Exercise.git
+[submodule "Service-Record"]
+	path = Service-Record
+	url = https://github.com/ICHEJA-PROJECT/Service-Record.git

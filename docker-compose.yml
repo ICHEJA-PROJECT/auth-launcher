@@ -6,7 +6,7 @@ services:
     image: postgres:16.2
     restart: always
     volumes:
-      - ./auth-ms/postgres:/var/lib/postgresql/data
+      - ./postgres:/var/lib/postgresql/data
     ports:
       - "${DB_PORT_EXT:-5432}:5432"
     environment:
@@ -76,7 +76,24 @@ services:
       - ENCRYPTION_KEY=${ENCRYPTION_KEY}
       - UPLOAD_IMAGE_SERVICE_URL=http://cloudinary-service:8080
       - BROKER_HOSTS=${BROKER_HOSTS:-amqp://rabbitmq:5672}
-      
+
+  record-service:
+    container_name: record_ms
+    build:
+      context: ./Service-Record
+      dockerfile: dockerfile.prod
+    restart: always
+    depends_on:
+      - rabbitmq
+      - auth-db
+    environment:
+      - PORT=${PORT:-4532}
+      - DB_NAME=${DB_NAME:-authdb}
+      - DB_PORT=5432
+      - DB_HOST=auth-db
+      - DB_USERNAME=${DB_USERNAME:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-1234567}
+      - BROKER_HOSTS=${BROKER_HOSTS:-amqp://rabbitmq:5672}
 
   voice-evaluator-service:
     container_name: voice_evaluator_service
