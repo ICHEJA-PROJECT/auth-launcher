@@ -58,14 +58,11 @@ services:
       context: ./auth-ms
       dockerfile: dockerfile.prod
     restart: always
-    ports:
-      - "${PORT:-4532}:4532"
     depends_on:
       - rabbitmq
       - auth-db
       - cloudinary-service
     environment:
-      - PORT=${PORT:-4532}
       - DB_HOST=auth-db
       - DB_PORT=5432
       - DB_USERNAME=${DB_USERNAME:-postgres}
@@ -87,13 +84,31 @@ services:
       - rabbitmq
       - auth-db
     environment:
-      - PORT=${PORT:-4532}
       - DB_NAME=${DB_NAME:-authdb}
       - DB_PORT=5432
       - DB_HOST=auth-db
       - DB_USERNAME=${DB_USERNAME:-postgres}
       - DB_PASSWORD=${DB_PASSWORD:-1234567}
       - BROKER_HOSTS=${BROKER_HOSTS:-amqp://rabbitmq:5672}
+
+  exercise-service:
+    container_name: exercise_ms
+    build:
+      context: ./Service-Exercise
+      dockerfile: dockerfile.prod
+    restart: always
+    depends_on:
+      - rabbitmq
+      - auth-db
+      - cloudinary-service
+    environment:
+      - DB_NAME=${DB_NAME:-authdb}
+      - DB_PORT=5432
+      - DB_HOST=auth-db
+      - DB_USERNAME=${DB_USERNAME:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-1234567}
+      - BROKER_HOSTS=${BROKER_HOSTS:-amqp://rabbitmq:5672}
+      - UPLOAD_FILES_SERVICE_URL=http://cloudinary-service:8080
 
   voice-evaluator-service:
     container_name: voice_evaluator_service
@@ -108,11 +123,11 @@ services:
     environment:
       - PORT=${VOICE_PORT_EXT:-5000}
 
-  comparar-imagen-service:
-    container_name: comparar_imagen_service
-    build:
-      context: ./AC_Comparar_Imagen
-      dockerfile: Dockerfile
-    restart: always
-    ports:
-      - "5001:5001"
+  # comparar-imagen-service:
+  #   container_name: comparar_imagen_service
+  #   build:
+  #     context: ./AC_Comparar_Imagen
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   ports:
+  #     - "5001:5001"
