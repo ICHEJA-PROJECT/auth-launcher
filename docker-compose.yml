@@ -123,11 +123,11 @@ services:
     environment:
       - PORT=${VOICE_PORT_EXT:-5000}
 
-  # comparar-imagen-service:
-  #   container_name: comparar_imagen_service
-  #   build:
-  #     context: ./AC_Comparar_Imagen
-  #     dockerfile: Dockerfile
-  #   restart: always
-  #   ports:
-  #     - "5001:5001"
+  comparar-imagen-service:
+    container_name: comparar_imagen_service
+    build:
+      context: ./AC_Comparar_Imagen
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "5001:5001"
