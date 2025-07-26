@@ -110,6 +110,22 @@ services:
       - BROKER_HOSTS=${BROKER_HOSTS:-amqp://rabbitmq:5672}
       - UPLOAD_FILES_SERVICE_URL=http://cloudinary-service:8080
 
+  preference-service:
+    container_name: preference_ms
+    build:
+      context: ./Service-Preference
+      dockerfile: dockerfile.prod
+    restart: always
+    depends_on:
+      - rabbitmq
+      - auth-db
+    environment:
+      - DB_NAME=${DB_NAME:-authdb}
+      - DB_PORT=5432
+      - DB_HOST=auth-db
+      - DB_USERNAME=${DB_USERNAME:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-1234567}
+      - BROKER_HOSTS=${BROKER_HOSTS:-amqp://rabbitmq:5672}
   voice-evaluator-service:
     container_name: voice_evaluator_service
     build:

@@ -20,3 +20,6 @@
 [submodule "Service-Record"]
 	path = Service-Record
 	url = https://github.com/ICHEJA-PROJECT/Service-Record.git
+[submodule "Service-Preference"]
+	path = Service-Preference
+	url = https://github.com/ICHEJA-PROJECT/Service-Preference.git
