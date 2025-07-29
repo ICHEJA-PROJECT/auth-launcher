@@ -55,7 +55,7 @@ services:
   auth-ms:
     container_name: auth_ms_prod
     build:
-      context: ./auth-ms
+      context: ./auth-service
       dockerfile: dockerfile.prod
     restart: always
     depends_on:
@@ -63,15 +63,14 @@ services:
       - auth-db
       - cloudinary-service
     environment:
-      - DB_HOST=auth-db
+      - JWT_SECRET=${JWT_SECRET}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - JWT_EXPIRATION=${JWT_EXPIRATION:-1h}
+      - DB_NAME=${DB_NAME:-authdb}
       - DB_PORT=5432
+      - DB_HOST=auth-db
       - DB_USERNAME=${DB_USERNAME:-postgres}
       - DB_PASSWORD=${DB_PASSWORD:-1234567}
-      - DB_NAME=${DB_NAME:-authdb}
-      - JWT_SECRET=${JWT_SECRET}
-      - JWT_EXPIRATION=${JWT_EXPIRATION:-1h}
-      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
-      - UPLOAD_IMAGE_SERVICE_URL=http://cloudinary-service:8080
       - BROKER_HOSTS=${BROKER_HOSTS:-amqp://rabbitmq:5672}
 
   record-service:

@@ -1,9 +1,6 @@
 [submodule "claudinary-image-service"]
 	path = claudinary-image-service
 	url = https://github.com/ICHEJA-PROJECT/claudinary-image-service.git
-[submodule "auth-ms"]
-	path = auth-ms
-	url = https://github.com/ICHEJA-PROJECT/auth-ms.git
 [submodule "voice-evaluator-service"]
 	path = voice-evaluator-service
 	url = https://github.com/ICHEJA-PROJECT/voice-evaluator-service.git
@@ -23,3 +20,6 @@
 [submodule "Service-Preference"]
 	path = Service-Preference
 	url = https://github.com/ICHEJA-PROJECT/Service-Preference.git
+[submodule "auth-service"]
+	path = auth-service
+	url = https://github.com/ICHEJA-PROJECT/auth-service.git
