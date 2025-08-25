@@ -73,6 +73,29 @@ services:
       - DB_PASSWORD=${DB_PASSWORD:-1234567}
       - BROKER_HOSTS=${BROKER_HOSTS:-amqp://rabbitmq:5672}
 
+  user-ms:
+    container_name: user_ms_prod
+    build:
+      context: ./Service-User
+      dockerfile: dockerfile.prod
+    restart: always
+    depends_on:
+      - rabbitmq
+      - auth-db
+      - cloudinary-service
+    environment:
+      - DB_NAME=${DB_NAME:-authdb}
+      - DB_PORT=5432
+      - DB_HOST=auth-db
+      - DB_USERNAME=${DB_USERNAME:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-1234567}
+      - BROKER_HOSTS=${BROKER_HOSTS:-amqp://rabbitmq:5672}
+      - UPLOAD_IMAGE_SERVICE_URL=http://cloudinary-service:8080
+      - SALTS=10
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRATION=${JWT_EXPIRATION:-1h}
+
   record-service:
     container_name: record_ms
     build:

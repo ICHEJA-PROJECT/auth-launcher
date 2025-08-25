@@ -23,3 +23,6 @@
 [submodule "auth-service"]
 	path = auth-service
 	url = https://github.com/ICHEJA-PROJECT/auth-service.git
+[submodule "Service-User"]
+	path = Service-User
+	url = https://github.com/ICHEJA-PROJECT/Service-User.git

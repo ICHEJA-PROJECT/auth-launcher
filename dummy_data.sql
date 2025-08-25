@@ -1,42 +1,27 @@
 BEGIN;
 
-INSERT INTO persona (primer_nombre, segundo_nombre, apellido_paterno, apellido_materno, curp, numero_ine, fecha_nacimiento, genero, codigo_postal, estado, municipio, localidad, vialidad_nombre, id_vialidad_tipo, asentamiento, id_asentamiento_tipo, password)
-VALUES 
-('Fernando', 'José', 'García', 'López', 'GALF850101HCHRPS01', '1234567890123', '1985-01-01', 'M', '29000', 'Chiapas', 'Tuxtla Gutiérrez', 'Tuxtla Gutiérrez', '5 de Mayo', 1, 'Centro', 1, '$2b$10$hashedpassword1'),
-('María', 'Elena', 'Hernández', 'Martínez', 'HEMM900215MCHRRL02', '2345678901234', '1990-02-15', 'F', '29010', 'Chiapas', 'Tuxtla Gutiérrez', 'Tuxtla Gutiérrez', 'Insurgentes', 2, 'Las Flores', 1, '$2b$10$hashedpassword2'),
-('Carlos', 'Alberto', 'Pérez', 'Sánchez', 'PESC880312HCHRRL03', '3456789012345', '1988-03-12', 'M', '29020', 'Chiapas', 'Tuxtla Gutiérrez', 'Tuxtla Gutiérrez', 'Revolución', 3, 'San José', 2, '$2b$10$hashedpassword3'),
-('Ana', 'Patricia', 'Rodríguez', 'González', 'ROGA920420MCHRDN04', '4567890123456', '1992-04-20', 'F', '29030', 'Chiapas', 'Tuxtla Gutiérrez', 'Tuxtla Gutiérrez', 'Hidalgo', 1, 'El Carmen', 1, '$2b$10$hashedpassword4');
-
-INSERT INTO rol (nombre)
-VALUES 
-('Educador'),
-('Administrador'),
-('Coordinador'),
-('Estudiante');
-INSERT INTO persona_rol (id_persona, id_rol)
-VALUES 
-(1, 4), 
-(2, 1), 
-(3, 1), 
-(4, 4);
-
 INSERT INTO tema (nombre)
 VALUES ('Introducción'),
 ('Caligrafía'),
 ('Abecedario'),
+('Determinantes'),
 ('Nombre propio'),
+('Sustantivos'),
 ('Calendario');
 
 INSERT INTO ruta_aprendizaje (nombre)
-VALUES ('Alfabetización en personas sordas');
+VALUES ('Alfabetización'), ('Alfabetización en personas sordas');
 
 INSERT INTO secuencia_temas (id_ruta_aprendizaje, id_tema, id_tema_siguiente)
 VALUES 
+(2, 1, 2),
+(2, 1, 3),
+(2, 3, 4),
+(2, 3, 5),
+(2, 3, 6),
+(2, 1, 7),
 (1, 1, 2),
-(1, 1, 3),
-(1, 2, 4),
-(1, 3, 5),
-(1, 4, 5);
+(1, 2, 3);
 
 INSERT INTO tipo_layouts (nombre)
 VALUES ('recurso'), ('reactivo');
@@ -265,31 +250,31 @@ VALUES
         "material": [
             {
                 "element": "Domingo", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107145/T4_R1_7.svg"
             },
             {
                 "element": "Lunes", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756106631/ICHEJA/ICHEJA/T4_R1_1.svg"
             },
             {
                 "element": "Martes", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756106808/Martes_ntgbix.svg"
             },
             {
                 "element": "Miércoles", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756106875/T4_R1_3.svg"
             },
             {
                 "element": "Jueves", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107005/T4_R1_4.svg"
             },
             {
                 "element": "Viernes", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107032/T4_R1_5.svg"
             },
             {
                 "element": "Sábado", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107127/T4_R1_6.svg"
             }
         ]
     }', 9),
@@ -297,51 +282,51 @@ VALUES
         "material": [
             {
                 "element": "Enero", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107473/T4_R2_1.svg"
             },
             {
                 "element": "Febrero", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107488/T4_R2_2.svg"
             },
             {
                 "element": "Marzo", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107514/T4_R2_3.svg"
             },
             {
                 "element": "Abril", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107560/T4_R2_4.svg"
             },
             {
                 "element": "Mayo", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107585/T4_R2_5.svg"
             },
             {
                 "element": "Junio", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107596/T4_R2_6.svg"
             },
             {
                 "element": "Julio", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107606/T4_R2_7.svg"
             },
             {
                 "element": "Agosto", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107626/T4_R2_8.svg"
             },
             {
                 "element": "Septiembre", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107636/T4_R2_9.svg"
             },
             {
                 "element": "Octubre", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107646/T4_R2_10.svg"
             },
             {
                 "element": "Noviembre", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107654/T4_R2_11.svg"
             },
             {
                 "element": "Diciembre", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107663/T4_R2_12.svg"
             }
         ]
     }', 9);
@@ -361,7 +346,6 @@ VALUES
 ('Aprendiendo sobre mi familia', 'Usa tu dedo para unir cada pregunta sobre tu familia con el nombre correcto.', '00:10:00', 8, 4),
 ('¡Conecta el Día con su Seña!', 'Arrastra el nombre del día y colócalo junto a la seña correcta.', '00:10:00', 10, 5),
 ('¿Qué Día Fue, Es y Será?', 'Arrastra el día correcto según: ayer, hoy y mañana.', '00:10:00', 11, 5);
-
 
 INSERT INTO tipo_instruccion_media (nombre)
 VALUES ('gif');
@@ -645,11 +629,11 @@ VALUES
             },
             {
                 "question": "¿Cómo se llama tu mamá?", 
-                "answer": "Rigoberto"
+                "answer": "Eugenia"
             },
             {
                 "question": "¿Cómo te llama tu papá?", 
-                "answer": "Eugenia"
+                "answer": "Rigoberto"
             }
         ]
     }'),
@@ -658,37 +642,37 @@ VALUES
             {
                 "element": "Domingo",
                 "image_path":
-                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581287/ICHEJA/ICHEJA/T2_R1_1.svg"
+                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107145/T4_R1_7.svg"
             },
             {
                 "element": "Lunes",
                 "image_path":
-                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581457/ICHEJA/ICHEJA/T2_R1_2.svg"
+                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756106631/ICHEJA/ICHEJA/T4_R1_1.svg"
             },
             {
                 "element": "Martes",
                 "image_path":
-                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581488/ICHEJA/ICHEJA/T2_R1_3.svg"
+                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756106808/Martes_ntgbix.svg"
             },
             {
                 "element": "Miércoles",
                 "image_path":
-                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581517/ICHEJA/ICHEJA/T2_R1_5.svg"
+                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756106875/T4_R1_3.svg"
             },
             {
                 "element": "Jueves",
                 "image_path":
-                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581562/ICHEJA/ICHEJA/T2_R1_6.svg"
+                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107005/T4_R1_4.svg"
             },
             {
                 "elemento": "Viernes",
                 "image_path":
-                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581562/ICHEJA/ICHEJA/T2_R1_6.svg"
+                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107032/T4_R1_5.svg"
             },
             {
                 "elemento": "Sábado",
                 "image_path":
-                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581590/ICHEJA/ICHEJA/T2_R1_7.svg"
+                    "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107127/T4_R1_6.svg"
             }
         ]
     }'),
@@ -696,24 +680,36 @@ VALUES
         "content": [
             {
                 "element": "Jueves", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581562/ICHEJA/ICHEJA/T2_R1_6.svg", 
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107005/T4_R1_4.svg", 
                 "sentence": "Hoy"
             },
             {
                 "element": "Miércoles", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581562/ICHEJA/ICHEJA/T2_R1_6.svg", 
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756106875/T4_R1_3.svg", 
                 "sentence": "Ayer"
             },
             {
                 "element": "Sábado", 
-                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1751581562/ICHEJA/ICHEJA/T2_R1_6.svg", 
+                "image_path": "https://res.cloudinary.com/dsiamqhuu/image/upload/v1756107127/T4_R1_6.svg", 
                 "sentence": "Mañana"
             }
         ]
     }');
 
 INSERT INTO educando_temas (id_educando, id_tema) 
-VALUES (1, 1), (1, 2);
+VALUES (1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1),
+(12, 1),
+(13, 1);
 
 /*
 INSERT INTO educando_ejercicios (id_educando, id_ejercicio, fecha_asignacion, fecha_completado, tiempo_asignado)
@@ -724,14 +720,82 @@ VALUES (1, 1, '2025-07-21 14:30:00', '2025-07-21 14:40:00', '00:10:00');
 
 INSERT INTO discapacidad (nombre) VALUES ('Ninguna'), ('Auditiva');
 
-INSERT INTO educando_discapacidades (id_educando, id_discapacidad) VALUES (1, 2);
+INSERT INTO educando_discapacidades (id_educando, id_discapacidad) 
+VALUES (1, 2),
+(2, 2),
+(3, 2),
+(4, 2),
+(5, 2),
+(6, 2),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1),
+(12, 1),
+(13, 1);
 
-INSERT INTO ruta_aprendizaje_discapacidades (id_ruta_aprendizaje, id_discapacidad ) VALUES (1, 2);
+INSERT INTO ruta_aprendizaje_discapacidades (id_ruta_aprendizaje, id_discapacidad ) VALUES (1, 1), (2, 2);
 
 INSERT INTO recurso_discapacidades (id_recurso, id_discapacidad)
 VALUES (1, 2), (2, 2), (3, 2), (4, 2);
 
 INSERT INTO reactivo_discapacidades (id_reactivo, id_discapacidad)
-VALUES (1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2), (4, 2), (5, 2), (6, 2), (7, 2), (8, 2), (9, 2), (10, 2);
+VALUES (1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2), (4, 2), (5, 2), (6, 2), (7, 2), (8, 2), (9, 2), (10, 2), (6, 1), (7, 1), (8, 1);
+
+INSERT INTO persona (primer_nombre, segundo_nombre, apellido_paterno, apellido_materno, curp, numero_ine, fecha_nacimiento, genero, vialidad_nombre, contrasenia, ruta_imagen_perfil, id_tipo_vialidad, id_asentamiento) VALUES 
+('Ana', 'Sofia', 'Gomez', 'Perez', 'GOAP051012MDFLVRA1', '2364956378', '2005-10-12', 'M', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Juan', 'Carlos', 'Lopez', 'Garcia', 'LIGJ060321HCSLVRA2', '2364956379', '2006-03-21', 'M', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Maria', 'Isabel', 'Ramirez', 'Diaz', 'RIDA070515HCSLVRA3', '2364956380', '2007-05-15', 'F', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Jose', 'Luis', 'Hernandez', 'Martinez', 'HEMJ081129MDFLVRA4', '2364956381', '2008-11-29', 'M', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Gabriela', 'Fernanda', 'Torres', 'Garcia', 'TOGA090903MDFLVRA5', '2364956382', '2009-09-03', 'F', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Daniel', 'Alejandro', 'Vargas', 'Reyes', 'VARA100118HCSLVRA6', '2364956383', '2010-01-18', 'M', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Sofia', 'Guadalupe', 'Mendoza', 'Perez', 'MEPS110222HCSLVRA7', '2364956384', '2011-02-22', 'F', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Diego', 'Sebastian', 'Soto', 'Herrera', 'SOHD120404MDFLVRA8', '2364956385', '2012-04-04', 'M', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Valeria', 'Monserrat', 'Ortiz', 'Gomez', 'ORVG130608MDFLVRA9', '2364956386', '2013-06-08', 'F', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Carlos', 'Alberto', 'Ramos', 'Fuentes', 'RAFC140817HCSLVRA1', '2364956387', '2014-08-17', 'M', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Ximena', 'Carolina', 'Morales', 'Rojas', 'MORX151120HCSLVRA2', '2364956388', '2015-11-20', 'F', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Hector', 'Manuel', 'Silva', 'Castro', 'SICH161205MDFLVRA3', '2364956389', '2016-12-05', 'M', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Fernando', 'Emiliano', 'Flores', 'De la Riva', 'FORF040807HCSLVRA8', '2364956377', '2004-08-07', 'M', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416),
+('Fernando', 'Emiliano', 'Flores', 'De la Riva', 'FORF040807HCSLVRA8', '2364956377', '2004-08-07', 'M', 'Versalles', '$2b$10$bdLXv39KSrqrIfS8RwNh/..Wow1ianUbqN6ycu8ghoyxSQYlhssMq', 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1754195253/profiles-images/profiles-images/FORF040807HCSLVRA8-2025-08-02-22-27-33.jpg', 1, 416);
+
+INSERT INTO progenitor (primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, curp) VALUES
+('Juan', 'Carlos', 'Gomez', 'Perez', 'GOPJ800101HCSLVR01'),
+('Maria', 'Isabel', 'Lopez', 'Garcia', 'LIGM820320HCSLVR02');
+
+INSERT INTO rol (nombre)
+VALUES ('Educador'), ('Educando'), ('Coordinador');
+
+INSERT INTO persona_rol (id_persona, id_rol)
+VALUES (1, 1),
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(7, 1),
+(8, 1),
+(9, 1),
+(10, 1),
+(11, 1),
+(12, 1),
+(13, 1),
+(14, 2);
+
+
+INSERT INTO educando (id_persona, id_educador, qr_ruta,id_padre, id_madre)
+VALUES (1, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002056/qr-images/qr-images/1-qr-2025-08-24-02-20.png', 1, 2),
+(2, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002056/qr-images/qr-images/2-qr-2025-08-24-02-20.png', 1, 2),
+(3, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002160/qr-images/qr-images/3-qr-2025-08-24-02-22.png', 1, 2),
+(4, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002272/qr-images/qr-images/4-qr-2025-08-24-02-24.png', 1, 2),
+(5, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002294/qr-images/qr-images/5-qr-2025-08-24-02-24.png', 1, 2),
+(6, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002319/qr-images/qr-images/6-qr-2025-08-24-02-25.png', 1, 2),
+(7, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002345/qr-images/qr-images/7-qr-2025-08-24-02-25.png', 1, 2),
+(8, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002365/qr-images/qr-images/8-qr-2025-08-24-02-26.png', 1, 2),
+(9, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002431/qr-images/qr-images/9-qr-2025-08-24-02-27.png', 1, 2),
+(10, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002449/qr-images/qr-images/10-qr-2025-08-24-02-27.png', 1, 2),
+(11, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002489/qr-images/qr-images/11-qr-2025-08-24-02-28.png', 1, 2),
+(12, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002526/qr-images/qr-images/12-qr-2025-08-24-02-28.png', 1, 2),
+(13, 14, 'http://res.cloudinary.com/dsiamqhuu/image/upload/v1756002549/qr-images/qr-images/13-qr-2025-08-24-02-29.png', 1, 2);
 
 COMMIT;
